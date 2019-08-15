@@ -4,7 +4,7 @@ import { shallow } from "enzyme";
 import Home from "./Home";
 
 const defaultProps = {
-  beers: []
+  classes: {}
 };
 
 describe("The Home instance", () => {

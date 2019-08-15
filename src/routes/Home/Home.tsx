@@ -1,21 +1,24 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { Classes } from "jss";
 
-import { Beer } from "../../types";
+import Text from "../../components/Text";
+import Input from "../../components/Input";
+import rebrewLogo from "../../images/rebrew-logo.png";
 
 interface HomeProps {
-  beers: Beer[];
+  classes: Classes;
 }
 
-const Home: React.FC<HomeProps> = ({ beers }) => (
-  <Fragment>
-    <h1>We've got some beers!</h1>
-    {beers.map(beer => (
-      <div key={beer.id}>
-        <h4>{beer.name}</h4>
-        <h5>{beer.description}</h5>
-      </div>
-    ))}
-  </Fragment>
+const Home: React.FC<HomeProps> = ({ classes }) => (
+  <main className={classes.root}>
+    <div className={classes.heading}>
+      <img src={rebrewLogo} alt="logo" className={classes.logo} />
+      <Text h1 style={{ color: "white" }}>
+        Start a conversation.
+      </Text>
+      <Input style={{ width: 400 }} placeholder="Search Beers" />
+    </div>
+  </main>
 );
 
 export default Home;
