@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Home instance When rendered with default props Should render without throwing any errors 1`] = `ShallowWrapper {}`;
