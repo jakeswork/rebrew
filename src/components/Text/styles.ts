@@ -2,69 +2,39 @@ import { Theme } from "../../utils/theme";
 import { CSSProperties } from "jss/css";
 
 const defaultStyles = (theme: Theme): CSSProperties => ({
-  color: "inherit",
+  color: theme.textPrimary,
   fontFamily: theme.fontFamily,
   fontWeight: 700,
-  marginBottom: "0.6em"
+  margin: 0,
+  marginBottom: 4
 });
 
 const styles = (theme: Theme): object => ({
   h1: {
     ...defaultStyles(theme),
-    fontSize: 80,
-    lineHeight: "1.05em",
-    marginBottom: "0.8em"
+    fontSize: 30,
+    marginBottom: 8
   },
   h2: {
     ...defaultStyles(theme),
-    fontSize: 64,
-    lineHeight: "1.0625",
-    letterSpacing: "-.009em"
+    fontSize: 24
   },
   h3: {
     ...defaultStyles(theme),
-    fontSize: 32,
-    lineHeight: "1.125",
-    letterSpacing: ".004em"
-  },
-  h4: {
-    ...defaultStyles(theme),
-    fontSize: 24,
-    lineHeight: "1.16667",
-    letterSpacing: ".009em"
-  },
-  h5: {
-    ...defaultStyles(theme),
-    fontSize: 21,
-    lineHeight: "1.38105",
-    fontWeight: 400,
-    letterSpacing: ".011em"
+    fontSize: 16
   },
   caption: {
     ...defaultStyles(theme),
-    fontSize: 14,
-    lineHeight: "1.33341",
-    fontWeight: 400,
-    letterSpacing: "-.01em",
-    color: theme.colorGrey,
-    marginBottom: 0
+    wordWrap: "break-word",
+    fontSize: 12,
+    fontWeight: 800,
+    letterSpacing: "0.08333333333333333em",
+    textTransform: "uppercase"
   },
   p: {
     ...defaultStyles(theme),
-    fontSize: 17,
-    lineHeight: "1.47059",
-    fontWeight: 400,
-    letterSpacing: "-.022em",
-    marginBottom: "0.2em"
-  },
-  link: {
-    ...defaultStyles(theme),
-    fontSize: 17,
-    lineHeight: "1.47059",
-    fontWeight: 400,
-    letterSpacing: "-.022em",
-    textDecoration: "none",
-    color: theme.colorBlue
+    fontSize: 16,
+    fontWeight: 400
   },
   [theme.media.mobile as any]: {
     h1: {

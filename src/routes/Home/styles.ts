@@ -1,18 +1,20 @@
-import backgroundImg from "../../images/rebrew-bg.jpg";
+import backgroundImg from "../../images/rebrew-bg-2.jpg";
 
 export default {
   root: {
     backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
     backgroundImage: `url(${backgroundImg})`,
     height: "100vh",
     display: "flex",
-    justifyContent: "center",
     alignItems: "center"
   },
   heading: {
-    textAlign: "center"
+    width: 440,
+    marginLeft: 64
   },
-  logo: {
-    width: 164
+  searchWrapper: {
+    display: "flex",
+    justifyContent: "space-between"
   }
 };

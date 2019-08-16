@@ -1,17 +1,25 @@
-import React, { useState, createRef, HTMLAttributes } from "react";
+import React, {
+  useState,
+  createRef,
+  HTMLAttributes,
+  ReactElement
+} from "react";
 import classNames from "classnames";
 import { Classes } from "jss";
 
-interface InputProps extends HTMLAttributes<HTMLInputElement> {
+export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   classes: Classes;
   placeholder?: string;
   className?: string;
+  icon?: ReactElement;
+  type?: string;
 }
 
 const Input: React.FC<InputProps> = ({
   classes,
   placeholder,
   className,
+  icon,
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -29,6 +37,7 @@ const Input: React.FC<InputProps> = ({
           {placeholder}
         </span>
       )}
+      {icon && React.cloneElement(icon, { className: classes.inputIcon })}
       <input
         ref={input}
         onFocus={() => setIsFocused(true)}

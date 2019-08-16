@@ -4,10 +4,12 @@ export default {
     top: 0,
     left: 0,
     right: 0,
+    minHeight: 44,
     padding: 16,
-    minHeight: 52
+    display: "flex",
+    justifyContent: "space-between"
   },
   logo: {
-    width: 88
+    width: 66
   }
 };

@@ -8,8 +8,6 @@ interface TextProps extends HTMLAttributes<HTMLElement> {
   h1?: boolean;
   h2?: boolean;
   h3?: boolean;
-  h4?: boolean;
-  h5?: boolean;
   caption?: boolean;
 }
 
@@ -20,8 +18,6 @@ const Text: React.FC<TextProps> = ({
   h1,
   h2,
   h3,
-  h4,
-  h5,
   caption,
   style
 }) => {
@@ -48,20 +44,6 @@ const Text: React.FC<TextProps> = ({
       <h3 style={styleOverride} className={classes.h3}>
         {children}
       </h3>
-    );
-
-  if (h4)
-    return (
-      <h4 style={styleOverride} className={classes.h4}>
-        {children}
-      </h4>
-    );
-
-  if (h5)
-    return (
-      <h5 style={styleOverride} className={classes.h5}>
-        {children}
-      </h5>
     );
 
   if (caption)

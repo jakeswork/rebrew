@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import injectSheet, { ThemeProvider } from "react-jss";
 import normalize from "normalize-jss";
 import { ApolloProvider } from "@apollo/react-hooks";
-import "typeface-muli";
+import "circular-std";
 
 import theme from "./utils/theme";
 import routes from "./routes";
