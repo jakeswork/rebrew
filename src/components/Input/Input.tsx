@@ -13,6 +13,7 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   className?: string;
   icon?: ReactElement;
   type?: string;
+  inputIsFocused?(arg0: boolean): void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -20,6 +21,7 @@ const Input: React.FC<InputProps> = ({
   placeholder,
   className,
   icon,
+  inputIsFocused,
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -40,10 +42,18 @@ const Input: React.FC<InputProps> = ({
       {icon && React.cloneElement(icon, { className: classes.inputIcon })}
       <input
         ref={input}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() =>
-          input.current && setIsFocused(input.current.value.length > 0)
-        }
+        onFocus={() => {
+          setIsFocused(true);
+
+          return inputIsFocused && inputIsFocused(true);
+        }}
+        onBlur={() => {
+          if (input.current) {
+            setIsFocused(input.current.value.length > 0);
+
+            return inputIsFocused && inputIsFocused(false);
+          }
+        }}
         className={classNames(classes.input, {
           [classes.inputActive]: isFocused
         })}
