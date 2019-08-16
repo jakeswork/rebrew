@@ -34,8 +34,20 @@ const Button: React.FC<ButtonProps> = ({
   if (flat) className = classes.flat;
 
   return (
-    <button disabled={disabled || loading} {...props} className={className}>
-      {loading ? <ClassicSpinner size={16} /> : children}
+    <button
+      disabled={disabled || loading || success}
+      {...props}
+      className={className}
+    >
+      {loading ? (
+        <ClassicSpinner size={16} />
+      ) : danger ? (
+        "Error"
+      ) : success ? (
+        "Success!"
+      ) : (
+        children
+      )}
       {icon && React.cloneElement(icon, { className: classes.buttonIcon })}
     </button>
   );

@@ -9,9 +9,9 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Card: React.FC<CardProps> = ({
-  classes,
-  children,
-  className,
+  classes = {},
+  children = null,
+  className = "",
   ...props
 }) => (
   <div className={classNames(classes.root, className)} {...props}>

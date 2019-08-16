@@ -11,7 +11,7 @@ interface NavigationProps {
   classes: Classes;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ classes }) => {
+const Navigation: React.FC<NavigationProps> = ({ classes = {} }) => {
   const [signupModalOpen, setSignupModalOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const openLoginModal = () => {

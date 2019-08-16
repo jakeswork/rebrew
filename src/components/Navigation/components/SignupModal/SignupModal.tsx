@@ -13,7 +13,10 @@ interface SignupModalProps {
   onCancel?(): void;
 }
 
-const SignupModal: React.FC<SignupModalProps> = ({ classes, onCancel }) => {
+const SignupModal: React.FC<SignupModalProps> = ({
+  classes = {},
+  onCancel = () => {}
+}) => {
   const [displayName, setDisplayName] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -97,6 +100,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ classes, onCancel }) => {
         <Button
           type="submit"
           loading={loading}
+          success={data && data.signup && data.signup.token}
           disabled={
             !userName.length ||
             !password.length ||

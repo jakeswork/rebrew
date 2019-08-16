@@ -13,7 +13,10 @@ interface LoginModalProps {
   onCancel?(): void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({ classes, onCancel }) => {
+const LoginModal: React.FC<LoginModalProps> = ({
+  classes = {},
+  onCancel = () => {}
+}) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [logIn, { data, error, loading }] = useMutation(LOG_IN);

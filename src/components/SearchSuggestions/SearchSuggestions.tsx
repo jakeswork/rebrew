@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Classes } from "jss";
 
 import { Beer } from "../../types";
@@ -7,19 +7,27 @@ import Text from "../Text";
 
 interface SearchSuggestionsProps {
   suggestions: Beer[];
-  loading?: boolean;
   classes: Classes;
+  onSelect?(arg0: Beer): void;
 }
 
 const SearchSuggestions: React.FC<SearchSuggestionsProps> = ({
   suggestions = [],
-  loading = false,
-  classes = {}
+  classes = {},
+  onSelect = () => {}
 }) => (
   <Card className={classes.root}>
-    {suggestions.map(beer => (
-      <Text>{beer.name}</Text>
-    ))}
+    {suggestions.length === 0 ? (
+      <Text>We're out of results :(</Text>
+    ) : (
+      suggestions.map(beer => (
+        <Fragment key={beer.id}>
+          <div onClick={() => onSelect(beer)} className={classes.suggestion}>
+            <Text>{beer.name}</Text>
+          </div>
+        </Fragment>
+      ))
+    )}
   </Card>
 );
 
