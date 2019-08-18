@@ -1,4 +1,4 @@
-import React, { useState, createRef } from "react";
+import React, { useState, createRef, Fragment } from "react";
 import { Classes } from "jss";
 
 import rebrewLogoBw from "../../images/rebrew-logo-bw.png";
@@ -6,22 +6,22 @@ import Button from "../Button";
 import ClickOutsideElementHandler from "../../utils/ClickOutsideElementHandler";
 import SignupModal from "./components/SignupModal";
 import LoginModal from "./components/LoginModal";
+import { UserAuthorized, logOut } from "../../utils/auth";
 
 interface NavigationProps {
   classes: Classes;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ classes = {} }) => {
+  const isAuthorizedUser = UserAuthorized();
   const [signupModalOpen, setSignupModalOpen] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const openLoginModal = () => {
     setSignupModalOpen(false);
-
     return setLoginModalOpen(true);
   };
   const openSignupModal = () => {
     setLoginModalOpen(false);
-
     return setSignupModalOpen(true);
   };
   const navRef = createRef<HTMLDivElement>();
@@ -33,14 +33,24 @@ const Navigation: React.FC<NavigationProps> = ({ classes = {} }) => {
 
   return (
     <div ref={navRef} className={classes.root}>
-      <img src={rebrewLogoBw} alt="logo" className={classes.logo} />
+      <a href="/">
+        <img src={rebrewLogoBw} alt="logo" className={classes.logo} />
+      </a>
       <div className={classes.navButtonsWrapper}>
-        <Button flat onClick={openSignupModal}>
-          Sign up
-        </Button>
-        <Button flat onClick={openLoginModal}>
-          Log in
-        </Button>
+        {isAuthorizedUser ? (
+          <Button flat onClick={logOut}>
+            Log out
+          </Button>
+        ) : (
+          <Fragment>
+            <Button flat onClick={openSignupModal}>
+              Sign up
+            </Button>
+            <Button flat onClick={openLoginModal}>
+              Log in
+            </Button>
+          </Fragment>
+        )}
       </div>
       {signupModalOpen && (
         <SignupModal onCancel={() => setSignupModalOpen(false)} />

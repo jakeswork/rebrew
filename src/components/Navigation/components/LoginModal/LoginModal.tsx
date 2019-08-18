@@ -7,6 +7,7 @@ import Card from "../../../Card";
 import Input from "../../../Input";
 import Button from "../../../Button";
 import { LOG_IN } from "./index";
+import { logIn } from "../../../../utils/auth";
 
 interface LoginModalProps {
   classes: Classes;
@@ -19,10 +20,10 @@ const LoginModal: React.FC<LoginModalProps> = ({
 }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [logIn, { data, error, loading }] = useMutation(LOG_IN);
+  const [logInMutation, { data, error, loading }] = useMutation(LOG_IN);
 
   if (data && data.login && data.login.token) {
-    localStorage.setItem("token", data.login.token);
+    logIn(data.login.token);
   }
 
   return (
@@ -35,7 +36,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
         onSubmit={async e => {
           e.preventDefault();
 
-          await logIn({
+          await logInMutation({
             variables: {
               user_name: userName,
               password
@@ -89,6 +90,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
         <Button
           type="submit"
           loading={loading}
+          success={data && data.login && data.login.token}
           disabled={
             !userName.length ||
             !password.length ||

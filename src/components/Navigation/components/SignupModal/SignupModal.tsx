@@ -7,6 +7,7 @@ import Card from "../../../Card";
 import Input from "../../../Input";
 import Button from "../../../Button";
 import { SIGN_UP } from "./index";
+import { logIn } from "../../../../utils/auth";
 
 interface SignupModalProps {
   classes: Classes;
@@ -23,7 +24,7 @@ const SignupModal: React.FC<SignupModalProps> = ({
   const [signUp, { data, error, loading }] = useMutation(SIGN_UP);
 
   if (data && data.signup && data.signup.token) {
-    localStorage.setItem("token", data.signup.token);
+    logIn(data.signup.token);
   }
 
   return (

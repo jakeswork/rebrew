@@ -1,6 +1,7 @@
 export default {
   root: {
     position: "fixed",
+    zIndex: 99,
     top: 0,
     left: 0,
     right: 0,

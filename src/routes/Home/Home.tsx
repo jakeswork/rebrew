@@ -2,6 +2,7 @@ import React, { useState, createRef } from "react";
 import { Classes } from "jss";
 import { FiSearch } from "react-icons/fi";
 import { useQuery } from "@apollo/react-hooks";
+import { RouteComponentProps } from "react-router";
 
 import ClickOutsideElementHandler from "../../utils/ClickOutsideElementHandler";
 import Text from "../../components/Text";
@@ -13,11 +14,11 @@ import SearchSuggestions from "../../components/SearchSuggestions";
 import { FUZZY_SEARCH_BEERS } from ".";
 import { Beer } from "../../types";
 
-interface HomeProps {
+interface HomeProps extends RouteComponentProps {
   classes: Classes;
 }
 
-const Home: React.FC<HomeProps> = ({ classes }) => {
+const Home: React.FC<HomeProps> = ({ classes, history }) => {
   const [beerName, setBeerName] = useState("");
   const [beerId, setBeerId] = useState();
   const [suggestionsVisible, setSuggestionsVisible] = useState(false);
@@ -53,7 +54,12 @@ const Home: React.FC<HomeProps> = ({ classes }) => {
             }}
             value={beerName}
           />
-          <Button disabled={!beerId}>Pour</Button>
+          <Button
+            disabled={!beerId}
+            onClick={() => history.push(`/beer/${beerId}`)}
+          >
+            Pour
+          </Button>
           {data && data.beers && suggestionsVisible && beerName.length > 0 && (
             <SearchSuggestions
               suggestions={data.beers.sort((a: Beer, b: Beer) => {

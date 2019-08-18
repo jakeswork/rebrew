@@ -7,6 +7,7 @@ export default {
     position: "relative",
     padding: 32,
     paddingBottom: 24,
-    margin: 8
+    margin: 8,
+    zIndex: 0
   }
 };

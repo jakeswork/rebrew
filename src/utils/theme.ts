@@ -8,6 +8,7 @@ interface ThemeMedia {
 }
 
 export interface Theme extends CSSProperties {
+  fontFamily: string;
   colorPrimary?: Color;
   colorSecondary?: Color;
   colorRed?: Color;

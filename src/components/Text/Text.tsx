@@ -1,10 +1,10 @@
-import React, { ReactChildren, HTMLAttributes } from "react";
+import React, { HTMLAttributes } from "react";
 import { Classes } from "jss";
 
 interface TextProps extends HTMLAttributes<HTMLElement> {
   bold?: boolean;
   classes: Classes;
-  children?: ReactChildren | string;
+  children?: any;
   h1?: boolean;
   h2?: boolean;
   h3?: boolean;
