@@ -11,6 +11,7 @@ import Brewing from "./components/Brewing";
 import Reviews from "./components/Reviews";
 import FoodPairings from "./components/FoodPairings";
 import Ingredients from "./components/Ingredients";
+import productImg from "../../images/punk-api.png";
 
 interface Identifiable {
   id: string;
@@ -33,9 +34,12 @@ const Beer: React.FC<BeerProps> = ({ match, classes }) => {
       <Navigation />
       <main className={classes.root}>
         <Heading {...response} />
-        <div className={classes.cardsWrapper}>
-          <Description {...response} />
-          <FoodPairings {...response} />
+        <div className={classes.split}>
+          <img src={productImg} className={classes.img} alt="beer" />
+          <div className={classes.cardsWrapper}>
+            <Description {...response} />
+            <FoodPairings {...response} />
+          </div>
         </div>
         <div className={classes.cardsWrapper}>
           <Reviews {...response} />

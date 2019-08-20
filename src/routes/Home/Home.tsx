@@ -37,7 +37,12 @@ const Home: React.FC<HomeProps> = ({ classes, history }) => {
     <main className={classes.root}>
       <Navigation />
       <Card className={classes.heading}>
-        <Text h1>Find out what all the buzz is about.</Text>
+        <Text h1>
+          Find out what all the buzz is about.{" "}
+          <span role="img" aria-label="spark">
+            ⚡
+          </span>
+        </Text>
         <Text>
           Search through our hundreds of beers to find the perfect pint.
         </Text>

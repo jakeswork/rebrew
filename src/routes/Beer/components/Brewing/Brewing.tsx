@@ -30,7 +30,7 @@ const Brewing: React.FC<BrewingProps> = ({ data, theme, classes }) => {
       <div>
         <div className={classes.row}>
           <div className={classes.col}>
-            <Text caption>Contributed By</Text>
+            <Text caption>Creator</Text>
             {data && data.beer ? data.beer.contributed_by : textLoader}
           </div>
           <div className={classes.col}>
@@ -40,7 +40,7 @@ const Brewing: React.FC<BrewingProps> = ({ data, theme, classes }) => {
         </div>
         <div className={classes.row}>
           <div className={classes.col}>
-            <Text caption>Fermented</Text>
+            <Text caption>Fermented At</Text>
             {data &&
             data.beer &&
             data.beer.method &&
@@ -54,14 +54,14 @@ const Brewing: React.FC<BrewingProps> = ({ data, theme, classes }) => {
             )}
           </div>
           <div className={classes.col}>
-            <Text caption>Brewed</Text>
+            <Text caption>Brewed At</Text>
             {data &&
             data.beer &&
             data.beer.method &&
             data.beer.method.mash_temp ? (
               <Fragment>
                 {data.beer.method.mash_temp[0].temp.value}
-                {data.beer.method.mash_temp[0].temp.unit},
+                {data.beer.method.mash_temp[0].temp.unit}
                 {data.beer.method.mash_temp[0].temp.duration}
               </Fragment>
             ) : (

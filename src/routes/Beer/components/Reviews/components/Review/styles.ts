@@ -19,6 +19,6 @@ export default (theme: Theme) => ({
     justifyContent: "center",
     alignItems: "center",
     color: "white",
-    background: theme.colorBlue
+    background: theme.colorRandom()
   }
 });

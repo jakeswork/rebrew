@@ -12,5 +12,14 @@ export default {
   },
   cardRowSplit: {
     width: "40%"
+  },
+  img: {
+    borderRadius: 4,
+    margin: 8,
+    width: 400,
+    display: "inline-block"
+  },
+  split: {
+    display: "flex"
   }
 };
