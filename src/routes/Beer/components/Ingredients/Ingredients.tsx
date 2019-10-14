@@ -13,9 +13,17 @@ interface IngredientsProps extends QueryResult<any> {
   classes: Classes;
 }
 
+const scale: number = 32
+
 const Ingredients: React.FC<IngredientsProps> = ({ data, theme, classes }) => (
   <Card className={classes.card}>
-    <Text h3>Ingredients</Text>
+    <Text h3>
+      Ingredients
+      {" "}
+      <span role="img" aria-label="grain">
+        🌾
+      </span>
+    </Text>
     {data && data.beer && data.beer.ingredients ? (
       <Fragment>
         <Fragment>
@@ -38,16 +46,21 @@ const Ingredients: React.FC<IngredientsProps> = ({ data, theme, classes }) => (
       </Fragment>
     ) : (
       <ContentLoader
-        height={100}
+        height={240}
         speed={2}
         primaryColor={theme.colorGrey}
         secondaryColor={"#999"}
       >
-        <rect y="8" rx="6" ry="6" width="240" height="12" />
-        <rect x="20" y="28" rx="6" ry="6" width="160" height="12" />
-        <rect y="48" rx="6" ry="6" width="240" height="12" />
-        <rect x="20" y="68" rx="6" ry="6" width="200" height="12" />
-        <rect x="20" y="88" rx="6" ry="6" width="80" height="12" />
+        <circle cx="12" cy="24" r="12" />
+        <rect x="32" y="16" rx="8" ry="8" width="300" height="16" />
+        <circle cx="12" cy={24 + scale} r="12" />
+        <rect x="32" y={16 + scale} rx="8" ry="8" width="300" height="16" />
+        <circle cx="12" cy={24 + (scale * 2)} r="12" />
+        <rect x="32" y={16 + (scale * 2)} rx="8" ry="8" width="300" height="16" />
+        <circle cx="12" cy={24 + (scale * 3)} r="12" />
+        <rect x="32" y={16 + (scale * 3)} rx="8" ry="8" width="300" height="16" />
+        <circle cx="12" cy={24 + (scale * 4)} r="12" />
+        <rect x="32" y={16 + (scale * 4)} rx="8" ry="8" width="300" height="16" />
       </ContentLoader>
     )}
   </Card>

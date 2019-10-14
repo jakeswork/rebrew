@@ -20,13 +20,19 @@ const Brewing: React.FC<BrewingProps> = ({ data, theme, classes }) => {
       primaryColor={theme.colorGrey}
       secondaryColor={"#999"}
     >
-      <rect y="8" rx="12" ry="12" width="240" height="16" />
+      <rect y="8" rx="12" ry="12" width="240" height="20" />
     </ContentLoader>
   );
 
   return (
     <Card className={classes.card}>
-      <Text h3>Brewing</Text>
+      <Text h3>
+        Brewing
+        {" "}
+        <span role="img" aria-label="beer-mug">
+          🍺
+        </span>
+      </Text>
       <div>
         <div className={classes.row}>
           <div className={classes.col}>

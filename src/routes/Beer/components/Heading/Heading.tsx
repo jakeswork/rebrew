@@ -15,9 +15,6 @@ const Heading: React.FC<HeadingProps> = ({ data, theme }) => (
       <Fragment>
         <Text h1>{data.beer.name}</Text>
         <Text h2>
-          <span role="img" aria-label="cheers">
-            🍻
-          </span>{" "}
           {data.beer.tagline}
         </Text>
       </Fragment>

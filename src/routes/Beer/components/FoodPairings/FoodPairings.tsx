@@ -12,13 +12,21 @@ interface FoodPairingsProps extends QueryResult<any> {
   classes: Classes;
 }
 
+const scale: number = 22
+
 const FoodPairings: React.FC<FoodPairingsProps> = ({
   data,
   theme,
   classes
 }) => (
   <Card className={classes.card}>
-    <Text h3>Food Pairings</Text>
+    <Text h3>
+      Food Pairings
+      {" "}
+      <span role="img" aria-label="fork-and-knife-with-plate">
+        🍽️
+      </span>
+    </Text>
     {data && data.beer ? (
       <Fragment>
         <Text>This particular beer would go great with:</Text>
@@ -32,16 +40,20 @@ const FoodPairings: React.FC<FoodPairingsProps> = ({
       </Fragment>
     ) : (
       <ContentLoader
-        height={100}
+        height={240}
         speed={2}
         primaryColor={theme.colorGrey}
         secondaryColor={"#999"}
       >
-        <rect y="8" rx="6" ry="6" width="240" height="12" />
-        <rect x="20" y="28" rx="6" ry="6" width="160" height="12" />
-        <rect y="48" rx="6" ry="6" width="240" height="12" />
-        <rect x="20" y="68" rx="6" ry="6" width="200" height="12" />
-        <rect x="20" y="88" rx="6" ry="6" width="80" height="12" />
+        <rect y="8" rx="8" ry="8" width="300" height="16" />
+        <rect x="20" y={8 + scale} rx="8" ry="8" width="320" height="16" />
+        <rect y={8 + (scale * 2)} rx="8" ry="8" width="280" height="16" />
+        <rect x="20" y={8 + (scale * 3)} rx="8" ry="8" width="360" height="16" />
+        <rect x="20" y={8 + (scale * 4)} rx="8" ry="8" width="120" height="16" />
+        <rect y={8 + (scale * 5)} rx="8" ry="8" width="300" height="16" />
+        <rect x="20" y={8 + (scale * 6)} rx="8" ry="8" width="320" height="16" />
+        <rect y={8 + (scale * 7)} rx="8" ry="8" width="280" height="16" />
+        <rect x="20" y={8 + (scale * 8)} rx="8" ry="8" width="360" height="16" />
       </ContentLoader>
     )}
   </Card>

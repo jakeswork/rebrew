@@ -10,6 +10,7 @@ export default {
     width: "50%"
   },
   card: {
-    width: "calc(100% - 82px)"
+    width: "calc(100% - 82px)",
+    minHeight: "calc(50% - 72px)"
   }
 };

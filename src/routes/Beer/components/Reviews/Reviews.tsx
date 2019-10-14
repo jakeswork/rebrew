@@ -17,7 +17,13 @@ interface ReviewsProps extends QueryResult<any> {
 
 const Reviews: React.FC<ReviewsProps> = ({ data, classes, theme }) => (
   <Card className={classes.card}>
-    <Text h3>Reviews</Text>
+    <Text h3>
+      Reviews
+      {" "}
+      <span role="img" aria-label="speech-bubble">
+        💬
+      </span>
+    </Text>
     <LeaveReview />
     {data && data.beer ? (
       <Fragment>

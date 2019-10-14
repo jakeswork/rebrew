@@ -1,6 +1,5 @@
 export default {
   card: {
-    minHeight: 80,
-    width: "40%"
+    minHeight: "calc(50% - 72px)"
   }
 };

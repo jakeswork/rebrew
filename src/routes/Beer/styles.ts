@@ -8,18 +8,17 @@ export default {
   cardsWrapper: {
     display: "flex",
     justifyContent: "space-between",
-    width: "100%"
-  },
-  cardRowSplit: {
-    width: "40%"
+    flexDirection: "column",
+    width: "32%"
   },
   img: {
     borderRadius: 4,
     margin: 8,
-    width: 400,
+    width: 712,
     display: "inline-block"
   },
   split: {
-    display: "flex"
+    display: "flex",
+    justifyContent: "space-between",
   }
 };

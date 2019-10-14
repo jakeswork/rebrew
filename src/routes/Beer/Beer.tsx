@@ -41,9 +41,9 @@ const Beer: React.FC<BeerProps> = ({ match, classes }) => {
             <FoodPairings {...response} />
           </div>
         </div>
-        <div className={classes.cardsWrapper}>
+        <div className={classes.split}>
           <Reviews {...response} />
-          <div className={classes.cardRowSplit}>
+          <div className={classes.cardsWrapper}>
             <Ingredients {...response} />
             <Brewing {...response} />
           </div>
